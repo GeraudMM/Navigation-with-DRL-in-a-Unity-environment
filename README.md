@@ -13,3 +13,22 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 3 - turn right.
 
 The task is episodic, and in order to "solve" the environment, an agent must get an average score of +13 over 100 consecutive episodes.
+
+### Files
+
+dqn_agent.py contains the agent and replay_buffer class.
+the agent class as a doubleDQN bool argument that allow it to be a doubleDQN agent if set to true.
+The replay_buffer class contains all the tuples (state, action, reward, next_state, done) yield during the training of the agent. They will be used to train it with fixed Q-targets.
+
+model.py contains the class QNetwork which is a fully connected deep network (it has three hidden layers). We used the relu activation function but others can apply.
+
+Navigation.ipynb is the notebook used to test and train the agents.
+
+### How to Install
+
+
+### Results
+
+It seems here that the DoubleDQN was not verry helpfull but that both of them were quit fast learner.
+This graphics is an average of 12 agents of both "simple" and double DQN. Then in order to have a readable graphic, I have made an average of the 100 values before each episode. For exemple, for the 120th episode, we will average episode 20 to 120.
+
