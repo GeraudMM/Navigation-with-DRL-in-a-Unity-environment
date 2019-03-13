@@ -26,15 +26,7 @@ The replay_buffer class contains all the tuples (state, action, reward, next_sta
 
 ### How to Install
 
-enter this three line on your terminal to download the environment: 
 
-`conda install -y numpy torch matplotlib jupyter`
-
-`git clone https://github.com/Unity-Technologies/ml-agents.git`
-
-`pip install ./ml-agents/ml-agents/`
-
-then you can download the project and should be able to run it.
 
 ### Results
 
