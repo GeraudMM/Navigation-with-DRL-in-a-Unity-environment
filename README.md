@@ -32,7 +32,7 @@ The replay_buffer class contains all the tuples (state, action, reward, next_sta
 It seems here that the DoubleDQN was not verry helpfull but that both of them were quit fast learner.
 This graphics is an average of 12 agents of both "simple" and double DQN. Then in order to have a readable graphic, I have made an average of the 100 values before each episode. For exemple, for the 120th episode, we will average episode 20 to 120.
 
-![](DQN vs doubleDQN 12 agent & 650 episode window = 100.png)
+![DQN vs doubleDQN 12 agent & 650 episode window = 100](DQN vs doubleDQN 12 agent & 650 episode window = 100.png)
 
 ### Idea for later
 
