@@ -1,8 +1,6 @@
 import numpy as np
 import random
 from collections import namedtuple, deque
-#import itertools
-
 
 from model import QNetwork
 
@@ -89,15 +87,7 @@ class Agent():
         states, actions, rewards, next_states, dones = experiences
         
         if self.doubleDQN :
-            # Get expected Q values from local model
-            #Q_expected = self.qnetwork_local(states).gather(1, actions)
             
-            #actions = self.qnetwork_local(next_states).detach().argmax(1)[0].unsqueeze(1)
-            # Get max predicted Q values (for next states) from target model
-            #print("action : ",actions)
-            #Q_targets_next = self.qnetwork_target(next_states).gather(1,actions)
-            # Compute Q targets for current states             
-            #Q_targets = rewards + (gamma * Q_targets_next * (1 - dones))
             Q_expected = self.qnetwork_local(states).gather(1, actions)
             actions = self.qnetwork_local(next_states).argmax(1, keepdim=True)
             Q_targets_next = self.qnetwork_target(next_states).gather(1, actions)
