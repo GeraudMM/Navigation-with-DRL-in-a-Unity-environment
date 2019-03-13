@@ -20,7 +20,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 class Agent():
     """Interacts with and learns from the environment."""
 
-    def __init__(self,model, state_size, action_size, seed, doubleDQN = False):
+    def __init__(self,model, state_size, action_size, seed):
         """Initialize an Agent object.
         
         Params
@@ -32,7 +32,6 @@ class Agent():
         self.state_size = state_size
         self.action_size = action_size
         self.seed = random.seed(seed)
-        self.doubleDQN = doubleDQN;
 
         # Q-Network with Fixed Q-targets
         self.qnetwork_local = model(state_size, action_size, seed).to(device)
@@ -85,22 +84,13 @@ class Agent():
             gamma (float): discount factor
         """
         states, actions, rewards, next_states, dones = experiences
-        
-        if self.doubleDQN :
-            
-            Q_expected = self.qnetwork_local(states).gather(1, actions)
-            actions = self.qnetwork_local(next_states).argmax(1, keepdim=True)
-            Q_targets_next = self.qnetwork_target(next_states).gather(1, actions)
-            Q_targets = rewards+gamma*Q_targets_next*(1-dones)
-            
-        else :
 
-            # Get expected Q values from local model
-            Q_expected = self.qnetwork_local(states).gather(1, actions)            
-            # Get max predicted Q values (for next states) from target model
-            Q_targets_next = self.qnetwork_target(next_states).detach().max(1)[0].unsqueeze(1)
-            # Compute Q targets for current states 
-            Q_targets = rewards + (gamma * Q_targets_next * (1 - dones))
+        # Get expected Q values from local model
+        Q_expected = self.qnetwork_local(states).gather(1, actions)            
+        # Get max predicted Q values (for next states) from target model
+        Q_targets_next = self.qnetwork_target(next_states).detach().max(1)[0].unsqueeze(1)
+        # Compute Q targets for current states 
+        Q_targets = rewards + (gamma * Q_targets_next * (1 - dones))
 
 
         # Compute loss
