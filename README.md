@@ -24,9 +24,6 @@ The replay_buffer class contains all the tuples (state, action, reward, next_sta
 
 - `Navigation.ipynb` is the notebook were you can test and train the agents.
 
-### How to Install
-
-TODO
 
 ### Results
 
