@@ -21,6 +21,6 @@ The replay_buffer class contains all the tuples (state, action, reward, next_sta
 
 - `model.py` contains the class QNetwork which is a fully connected deep network (it has two hidden layers). We used the relu activation function but others can apply.
 
-- `Navigation.ipynb` is the notebook were you can test and train the agents.
+- `Navigation_2.ipynb` is the notebook were you can test and train the agents.
 
 ### Installing
