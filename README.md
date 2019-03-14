@@ -17,22 +17,10 @@ The task is episodic, and in order to "solve" the environment, an agent must get
 ### Files
 
 - `dqn_agent.py` contains the agent and replay_buffer class.
-the agent class as a doubleDQN bool argument that allow it to be a doubleDQN agent if set to true.
 The replay_buffer class contains all the tuples (state, action, reward, next_state, done) yield during the training of the agent. They will be used to train it with fixed Q-targets.
 
-- `model.py` contains the class QNetwork which is a fully connected deep network (it has three hidden layers). We used the relu activation function but others can apply.
+- `model.py` contains the class QNetwork which is a fully connected deep network (it has two hidden layers). We used the relu activation function but others can apply.
 
 - `Navigation.ipynb` is the notebook were you can test and train the agents.
 
-
-### Results
-
-It seems here that the DoubleDQN was not verry helpfull but that both of them were quit fast learner.
-This graphics is an average of 12 agents of both "simple" and double DQN. Then in order to have a readable graphic, I have made an average of the 100 values before each episode. For exemple, for the 120th episode, we will average episode 20 to 120.
-
-[Link](./DQN vs doubleDQN 12 agent & 650 episode window = 100.png)
-
-
-### Idea for later
-
-It would be interesting to implement dueling DQN and prioritized replay to see whether it has more influence than doubleDQN on the Agent. Maybe should we launch a big simulation to see how each variable influence the learning time. Testing changes in the deep Network should be verry productive too.
+### Installing
